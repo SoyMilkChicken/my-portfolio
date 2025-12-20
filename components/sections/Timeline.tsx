@@ -6,10 +6,10 @@ import { GraduationCap, Briefcase, Trophy, Code } from 'lucide-react';
 const timelineEvents = [
   {
     id: '1',
-    title: 'Computer & Information Technology',
+    title: 'Data Analysis',
     organization: 'Purdue University',
     date: '2022 — Present',
-    description: 'Pursuing a CNIT major with a Statistics minor, focusing on data science, AI, and software development.',
+    description: 'Pursuing a Data Analysis major with a Statistics minor, focusing on data science, AI, and software development.',
     highlights: ['Statistics Minor', 'STAT 512', 'CNIT 372'],
     icon: GraduationCap,
   },

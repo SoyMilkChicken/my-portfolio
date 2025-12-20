@@ -48,7 +48,7 @@ export function About() {
             className="space-y-6"
           >
             <p className="text-body-lg text-text-secondary leading-relaxed">
-              I'm a Computer and Information Technology student at Purdue University 
+              I'm a Data Analysis student at Purdue University 
               with a minor in Statistics. My journey in tech is driven by a fascination 
               with how data and AI can transform decision-making.
             </p>
@@ -68,7 +68,7 @@ export function About() {
             <div className="grid grid-cols-2 gap-6 pt-6 border-t border-neutral-200">
               {[
                 { label: 'Education', value: 'Purdue University' },
-                { label: 'Major', value: 'CNIT' },
+                { label: 'Major', value: 'Data Analysis' },
                 { label: 'Minor', value: 'Statistics' },
                 { label: 'Languages', value: 'English, Mandarin' },
               ].map((item, index) => (

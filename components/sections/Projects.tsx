@@ -24,13 +24,15 @@ const projects = [
     image: '/images/caller-id.png',
   },
   {
-    id: 'nba-analytics',
-    title: 'NBA Analytics',
-    subtitle: 'Defensive Matchup Analysis',
-    description: 'Statistical analysis platform examining how defensive matchups impact player performance.',
-    tech: ['R', 'Shiny', 'ggplot2', 'SQL'],
-    image: '/images/nba-analytics.png',
+    id: 'house-price-prediction',
+    title: 'House Price Prediction',
+    subtitle: 'Statistical Regression Analysis (Stat 512)',
+    description: 'Developed a multiple linear regression model to predict real estate prices. Performed extensive variable selection, residual analysis, and diagnostic testing to identify key market drivers and optimize prediction accuracy.',
+    tech: ['R', 'SAS', 'Linear Regression', 'Statistical Modeling'],
+    image: '/images/house-price.png',
   },
+
+
 ];
 
 export function Projects() {

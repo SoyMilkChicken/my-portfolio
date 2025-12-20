@@ -49,7 +49,7 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-body-lg text-text-secondary max-w-lg mb-8"
             >
-              CNIT student at Purdue University building intelligent solutions 
+              Data Analysis student at Purdue University building intelligent solutions 
               at the intersection of AI, data science, and financial technology. 
               1st place winner of the SYSTEX Competition 2025.
             </motion.p>
