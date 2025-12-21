@@ -30,7 +30,7 @@ const projects: Project[] = [
     longDescription: 'RAGTIRE is an innovative AI-powered financial advisor that leverages Retrieval-Augmented Generation (RAG) technology to provide personalized investment recommendations.\n\nKey achievements:\n• Built a complete RAG pipeline using LangChain and OpenAI\n• Integrated real-time market data from Taiwanese stock exchanges\n• Developed a user-friendly chat interface for natural language queries\n• Implemented vector database for efficient document retrieval\n• Won 1st place among 50+ project submissions',
     award: '1st Place — SYSTEX 2025',
     tech: ['Python', 'LangChain', 'OpenAI', 'FastAPI', 'Pinecone', 'React'],
-    image: '/images/ragtire.png',
+    image: '/images/ragtire.jpg',
     featured: true,
     links: {
       github: 'https://github.com/stanfeng/ragtire',
@@ -75,34 +75,29 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
         transition={{ duration: 0.2 }}
-        className="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden shadow-elevated"
+        className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden shadow-elevated"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative aspect-[16/9] bg-neutral-100">
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            className="object-cover"
-          />
+        <div className="flex items-start justify-between p-8 pb-0">
+          <div>
+            {project.award && (
+              <div className="flex items-center gap-2 mb-3">
+                <Trophy className="w-4 h-4 text-amber-500" />
+                <span className="text-xs font-medium text-amber-600">{project.award}</span>
+              </div>
+            )}
+            <h2 className="text-2xl font-semibold text-neutral-900">{project.title}</h2>
+            <p className="text-sm text-neutral-500 mt-1">{project.subtitle}</p>
+          </div>
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-neutral-600 hover:text-neutral-900 transition-colors"
+            className="w-10 h-10 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-600 hover:text-neutral-900 hover:bg-neutral-200 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
-          {project.award && (
-            <div className="absolute bottom-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-sm">
-              <Trophy className="w-4 h-4 text-amber-500" />
-              <span className="text-xs font-medium text-amber-600">{project.award}</span>
-            </div>
-          )}
         </div>
 
-        <div className="p-8 overflow-y-auto max-h-[50vh]">
-          <h2 className="text-2xl font-semibold text-neutral-900 mb-1">{project.title}</h2>
-          <p className="text-sm text-neutral-500 mb-6">{project.subtitle}</p>
-
+        <div className="p-8 overflow-y-auto max-h-[60vh]">
           <div className="mb-6">
             {project.longDescription.split('\n').map((paragraph, index) => (
               <p key={index} className="text-base text-neutral-600 mb-3 whitespace-pre-line">
@@ -188,7 +183,7 @@ export function Projects() {
               className="bento-card overflow-hidden"
             >
               <div className="grid lg:grid-cols-2">
-                <div className="aspect-[4/3] lg:aspect-auto relative bg-neutral-100">
+                <div className="aspect-[4/4] relative bg-neutral-100">
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -228,7 +223,7 @@ export function Projects() {
                     ))}
                   </div>
 
-                  <button 
+                  <button
                     onClick={() => setSelectedProject(project)}
                     className="link-text"
                   >
@@ -309,9 +304,9 @@ export function Projects() {
 
       <AnimatePresence>
         {selectedProject && (
-          <ProjectModal 
-            project={selectedProject} 
-            onClose={() => setSelectedProject(null)} 
+          <ProjectModal
+            project={selectedProject}
+            onClose={() => setSelectedProject(null)}
           />
         )}
       </AnimatePresence>
