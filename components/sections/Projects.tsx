@@ -21,6 +21,8 @@ interface Project {
   };
 }
 
+// In components/sections/Projects.tsx - replace the projects array
+
 const projects: Project[] = [
   {
     id: 'ragtire',
@@ -37,14 +39,17 @@ const projects: Project[] = [
     },
   },
   {
-    id: 'luxury-caller',
-    title: 'Luxury Caller ID',
-    subtitle: 'Premium Caller Identification',
-    description: 'Backend development for a premium caller identification application serving the US market.',
-    longDescription: 'A sophisticated caller identification service designed for the premium market segment.\n\nMy contributions:\n• Architected scalable serverless backend using Next.js API routes\n• Designed PostgreSQL database schema for efficient caller lookups\n• Implemented real-time data sync with Supabase\n• Built RESTful API with sub-100ms response times\n• Set up authentication and subscription management',
-    tech: ['Next.js', 'Supabase', 'TypeScript', 'PostgreSQL'],
-    image: '/images/caller-id.png',
+    id: 'alpha-factory',
+    title: 'Alpha Factory Native',
+    subtitle: 'iOS Wealth Intelligence & LifeOS',
+    description: 'A modular iOS app for tracking net worth, expenses with opportunity cost analysis, fitness PRs, career CRM, and deep work — all local-first with Face ID security.',
+    longDescription: 'Alpha Factory Native is a comprehensive "LifeOS" iOS application designed around wealth intelligence and personal optimization.\n\nCore Modules:\n• Wealth — Net worth dashboard with multi-currency support (USD/TWD), real-time stock quotes via Yahoo Finance API, and expense logging that calculates 10-year opportunity cost at 8% CAGR\n• Iron — Fitness tracking with exercise library and personal record progression\n• Rainmaker — Career CRM with contact management and job application Kanban board\n• Protocol — Deep work timer with calendar integration and objective tracking\n\nTechnical Highlights:\n• Built with Swift 6 and strict concurrency\n• SwiftUI + SwiftData for local-first persistence (no cloud dependency)\n• Three custom themes with neumorphic design system\n• Face ID/Touch ID authentication\n• Apple Calendar sync for expense tracking\n• Bilingual support (English & Traditional Chinese)',
+    tech: ['Swift', 'SwiftUI', 'SwiftData', 'EventKit', 'Yahoo Finance API'],
+    image: '/images/alpha-factory.png',
     featured: false,
+    links: {
+      github: 'https://github.com/stanfeng/alpha-factory-native',
+    },
   },
   {
     id: 'house-price-prediction',
