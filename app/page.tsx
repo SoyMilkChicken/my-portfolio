@@ -8,6 +8,7 @@ import { Skills } from '@/components/sections/Skills';
 import { Projects } from '@/components/sections/Projects';
 import { Timeline } from '@/components/sections/Timeline';
 import { Contact } from '@/components/sections/Contact';
+import { Gallery } from '@/components/sections/Gallery';
 import { IntroScreen } from '@/components/ui/IntroScreen';
 
 export default function Home() {
@@ -26,6 +27,7 @@ export default function Home() {
         <Skills />
         <Projects />
         <Timeline />
+        <Gallery />
         <Contact />
       </main>
 
