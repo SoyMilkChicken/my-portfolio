@@ -1,9 +1,79 @@
 'use client';
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useRef } from 'react';
+import {
+  motion,
+  AnimatePresence,
+  useMotionValue,
+  useSpring,
+  useTransform,
+  type MotionProps,
+} from 'framer-motion';
 import { ArrowRight, Trophy, ArrowUpRight, X, Github, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
+import { RevealText } from '@/components/animations/RevealText';
+
+interface TiltCardProps {
+  children: React.ReactNode;
+  className?: string;
+  maxRotate?: number;
+  onClick?: () => void;
+  // forwarded framer-motion animation props (for whileInView fade-in)
+  initial?: MotionProps['initial'];
+  whileInView?: MotionProps['whileInView'];
+  transition?: MotionProps['transition'];
+  viewport?: MotionProps['viewport'];
+}
+
+function TiltCard({
+  children,
+  className = '',
+  maxRotate = 8,
+  onClick,
+  initial,
+  whileInView,
+  transition,
+  viewport,
+}: TiltCardProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const xSpring = useSpring(x, { stiffness: 300, damping: 30 });
+  const ySpring = useSpring(y, { stiffness: 300, damping: 30 });
+  const rotateX = useTransform(ySpring, [-0.5, 0.5], [maxRotate, -maxRotate]);
+  const rotateY = useTransform(xSpring, [-0.5, 0.5], [-maxRotate, maxRotate]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = ref.current?.getBoundingClientRect();
+    if (!rect) return;
+    x.set((e.clientX - rect.left) / rect.width - 0.5);
+    y.set((e.clientY - rect.top) / rect.height - 0.5);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <div style={{ perspective: '1000px' }}>
+      <motion.div
+        ref={ref}
+        initial={initial}
+        whileInView={whileInView}
+        transition={transition}
+        viewport={viewport}
+        style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        onClick={onClick}
+        className={className}
+      >
+        {children}
+      </motion.div>
+    </div>
+  );
+}
 
 interface Project {
   id: string;
@@ -30,7 +100,7 @@ const projects: Project[] = [
     subtitle: 'AI-Powered Robo-Advisor',
     description: 'First-place winning robo-advisor utilizing RAG technology for personalized investment recommendations in the Taiwanese market.',
     longDescription: 'RAGTIRE is an innovative AI-powered financial advisor that leverages Retrieval-Augmented Generation (RAG) technology to provide personalized investment recommendations.\n\nKey achievements:\n• Built a complete RAG pipeline using LangChain and OpenAI\n• Integrated real-time market data from Taiwanese stock exchanges\n• Developed a user-friendly chat interface for natural language queries\n• Implemented vector database for efficient document retrieval\n• Won 1st place among 50+ project submissions',
-    award: '1st Place — SYSTEX 2025',
+    award: '1st Place — SYSTEX Aug 2025',
     tech: ['Python', 'LangChain', 'OpenAI', 'FastAPI', 'Pinecone', 'React'],
     image: '/images/ragtire.jpg',
     featured: true,
@@ -163,28 +233,25 @@ export function Projects() {
   return (
     <section id="projects" className="section-padding bg-blueprint-dark">
       <div className="container-main">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <p className="tag-mono mb-3">Projects</p>
-          <h2 className="section-title mb-4">Selected work</h2>
-          <p className="section-subtitle">
-            A selection of projects showcasing my expertise in AI, full-stack development, and data analysis.
-          </p>
-        </motion.div>
+        <div className="mb-16">
+          <RevealText delay={0}><p className="tag-mono mb-3">Projects</p></RevealText>
+          <RevealText delay={0.1}><h2 className="section-title mb-4">Selected work</h2></RevealText>
+          <RevealText delay={0.2}>
+            <p className="section-subtitle">
+              A selection of projects showcasing my expertise in AI, full-stack development, and data analysis.
+            </p>
+          </RevealText>
+        </div>
 
         <div className="space-y-6">
           {projects.filter(p => p.featured).map((project) => (
-            <motion.div
+            <TiltCard
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
+              maxRotate={5}
               className="bento-card overflow-hidden"
             >
               <div className="grid lg:grid-cols-2">
@@ -237,18 +304,19 @@ export function Projects() {
                   </button>
                 </div>
               </div>
-            </motion.div>
+            </TiltCard>
           ))}
 
           <div className="grid md:grid-cols-2 gap-6">
             {projects.filter(p => !p.featured).map((project, index) => (
-              <motion.div
+              <TiltCard
                 key={project.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bento-card group cursor-pointer"
+                maxRotate={9}
+                className="bento-card group cursor-pointer h-full"
                 onClick={() => setSelectedProject(project)}
               >
                 <div className="aspect-[16/10] relative bg-neutral-100 overflow-hidden">
@@ -283,7 +351,7 @@ export function Projects() {
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </TiltCard>
             ))}
           </div>
         </div>

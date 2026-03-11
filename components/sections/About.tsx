@@ -3,22 +3,17 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import { RevealText } from '@/components/animations/RevealText';
 
 export function About() {
   return (
     <section id="about" className="section-padding bg-blueprint-dark">
       <div className="container-main">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <p className="tag-mono mb-3">About</p>
-          <h2 className="section-title">A bit about me</h2>
-        </motion.div>
+        <div className="mb-16">
+          <RevealText delay={0}><p className="tag-mono mb-3">About</p></RevealText>
+          <RevealText delay={0.1}><h2 className="section-title">A bit about me</h2></RevealText>
+        </div>
 
         {/* Content Grid */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
@@ -34,7 +29,7 @@ export function About() {
                 src="/images/profile.jpg"
                 alt="Stan Feng"
                 fill
-                className="object-cover object-top saturate-[0.7] hover:saturate-100 transition-all duration-500"
+                className="object-cover object-top"
               />
             </div>
           </motion.div>

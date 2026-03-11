@@ -191,6 +191,20 @@
   .delay-600 { animation-delay: 600ms; }
 }
 
+/* Custom cursor — hide system cursor on pointer (non-touch) devices */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* Marquee pause on hover */
+.marquee-row:hover .animate-marquee,
+.marquee-row:hover .animate-marquee-reverse,
+.marquee-row:hover .animate-marquee-slow {
+  animation-play-state: paused;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,

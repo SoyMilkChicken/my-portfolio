@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, CheckCircle, AlertCircle, Loader2, MapPin, Mail, Github, Linkedin, ArrowUpRight } from 'lucide-react';
+import { RevealText } from '@/components/animations/RevealText';
 
 interface FormData {
   name: string;
@@ -69,19 +70,15 @@ export function Contact() {
     <section id="contact" className="section-padding bg-blueprint-dark">
       <div className="container-main">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <p className="tag-mono mb-3">Contact</p>
-          <h2 className="section-title mb-4">Let's work together</h2>
-          <p className="section-subtitle">
-            Have an opportunity or want to collaborate? I'd love to hear from you.
-          </p>
-        </motion.div>
+        <div className="mb-16">
+          <RevealText delay={0}><p className="tag-mono mb-3">Contact</p></RevealText>
+          <RevealText delay={0.1}><h2 className="section-title mb-4">Let's work together</h2></RevealText>
+          <RevealText delay={0.2}>
+            <p className="section-subtitle">
+              Have an opportunity or want to collaborate? I&apos;d love to hear from you.
+            </p>
+          </RevealText>
+        </div>
 
         <div className="grid lg:grid-cols-5 gap-12 max-w-5xl mx-auto">
           {/* Contact Form */}

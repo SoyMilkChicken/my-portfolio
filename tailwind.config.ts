@@ -15,6 +15,11 @@ const config: Config = {
           black: '#000000',
           dark: '#111111',
         },
+        accent: {
+          DEFAULT: '#6366f1',
+          light: '#a5b4fc',
+          dark: '#4f46e5',
+        },
         neutral: {
           50: '#fafafa',
           100: '#f5f5f5',
@@ -104,6 +109,9 @@ const config: Config = {
         'slide-in-right': 'slideInRight 0.7s ease-out forwards',
         'scale-in': 'scaleIn 0.5s ease-out forwards',
         'float': 'float 6s ease-in-out infinite',
+        'marquee': 'marquee 28s linear infinite',
+        'marquee-reverse': 'marquee-reverse 35s linear infinite',
+        'marquee-slow': 'marquee 42s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -125,6 +133,14 @@ const config: Config = {
         float: {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' },
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        'marquee-reverse': {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0)' },
         },
       },
     },
