@@ -15,10 +15,12 @@ import { RevealText } from '@/components/animations/RevealText';
 //   'normal'→ 1×1           (square)
 // ─────────────────────────────────────────────────────────────────────────────
 const PHOTOS: { src: string; alt: string; span?: 'tall' | 'wide' | 'normal' }[] = [
-  // ← Drop your photos into /public/images/gallery/ and add them here, e.g.:
-  // { src: '/images/gallery/photo-1.jpg', alt: 'Caption here', span: 'tall'   },
-  // { src: '/images/gallery/photo-2.jpg', alt: 'Caption here', span: 'normal' },
-  // { src: '/images/gallery/photo-3.jpg', alt: 'Caption here', span: 'wide'   },
+  { src: '/images/gallery/2024 Kyoto trip boathouse1_.jpg', alt: 'Kyoto boathouse, 2024',  span: 'normal' },
+  { src: '/images/gallery/DSC03194.jpg',                    alt: 'DSC03194',                span: 'tall'   },
+  { src: '/images/gallery/DSC03199.jpg',                    alt: 'DSC03199',                span: 'tall'   },
+  { src: '/images/gallery/DSC03221.jpg',                    alt: 'DSC03221',                span: 'wide'   },
+  { src: '/images/gallery/DSC03255.jpg',                    alt: 'DSC03255',                span: 'tall'   },
+  { src: '/images/gallery/DSC03259.jpg',                    alt: 'DSC03259',                span: 'tall'   },
 ];
 
 // ─── Lightbox ────────────────────────────────────────────────────────────────
