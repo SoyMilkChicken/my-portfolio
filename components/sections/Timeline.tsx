@@ -1,28 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { GraduationCap, Briefcase, Trophy, Code } from 'lucide-react';
+import { GraduationCap, Briefcase, Trophy, Code, Smartphone } from 'lucide-react';
 import { RevealText } from '@/components/animations/RevealText';
 
+// Most recent first
 const timelineEvents = [
-  {
-    id: '1',
-    title: 'Data Analysis',
-    organization: 'Purdue University',
-    date: '2022 — Present',
-    description: 'Pursuing a Data Analysis major with a Statistics minor, focusing on data science, AI, and software development.',
-    highlights: ['Statistics Minor', 'STAT 512', 'CNIT 372'],
-    icon: GraduationCap,
-  },
-  {
-    id: '2',
-    title: 'Software Engineering Intern',
-    organization: 'SYSTEX Corporation',
-    date: 'Summer 2025',
-    description: 'Developed AI-powered solutions for the financial technology sector, working on RAG applications.',
-    highlights: ['RAGTIRE', 'LangChain', 'Vector DBs'],
-    icon: Briefcase,
-  },
   {
     id: '3',
     title: '1st Place Winner',
@@ -33,6 +16,24 @@ const timelineEvents = [
     icon: Trophy,
   },
   {
+    id: '2',
+    title: 'Software Engineering Intern',
+    organization: 'SYSTEX Corporation',
+    date: 'Summer 2025',
+    description: 'Developed AI-powered solutions for the financial technology sector, working on RAG applications and FinTech products.',
+    highlights: ['RAGTIRE', 'LangChain', 'Vector DBs'],
+    icon: Briefcase,
+  },
+  {
+    id: '5',
+    title: 'Founder & iOS Engineering Lead',
+    organization: 'Alpha Factory',
+    date: '2025 — Present',
+    description: 'Founded and built Alpha Factory Native — a modular iOS LifeOS app for wealth tracking, fitness, career CRM, and deep work. Architected with Swift 6, SwiftUI, and SwiftData for a fully local-first experience.',
+    highlights: ['Swift 6', 'SwiftUI', 'SwiftData', 'Face ID', 'Yahoo Finance API'],
+    icon: Smartphone,
+  },
+  {
     id: '4',
     title: 'Backend Developer',
     organization: 'Luxury Caller ID App',
@@ -40,6 +41,15 @@ const timelineEvents = [
     description: 'Leading backend development for a premium caller identification service.',
     highlights: ['Next.js', 'Supabase', 'PostgreSQL'],
     icon: Code,
+  },
+  {
+    id: '1',
+    title: 'B.S. Data Analysis',
+    organization: 'Purdue University',
+    date: '2022 — Present',
+    description: 'Pursuing a Data Analysis major with a Statistics minor, focusing on data science, AI, and software development.',
+    highlights: ['Statistics Minor', 'STAT 512', 'CNIT 372'],
+    icon: GraduationCap,
   },
 ];
 
