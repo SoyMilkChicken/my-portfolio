@@ -36,10 +36,10 @@ const timelineEvents = [
   {
     id: '4',
     title: 'Backend Developer',
-    organization: 'Luxury Caller ID App',
+    organization: 'Talent One',
     date: '2024 — Present',
-    description: 'Leading backend development for a premium caller identification service.',
-    highlights: ['Next.js', 'Supabase', 'PostgreSQL'],
+    description: 'Building backend infrastructure for an AI-powered HR platform focused on streamlining talent acquisition and workforce intelligence.',
+    highlights: ['Next.js', 'Supabase', 'PostgreSQL', 'AI/HR Tech'],
     icon: Code,
   },
   {
