@@ -10,6 +10,7 @@ import { Timeline } from '@/components/sections/Timeline';
 import { Contact } from '@/components/sections/Contact';
 import { Gallery } from '@/components/sections/Gallery';
 import { IntroScreen } from '@/components/ui/IntroScreen';
+import { Personas } from '@/components/sections/Personas';
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
       {/* Main content */}
       <main id="main-content">
         <Hero />
+        <Personas />
         <About />
         <Skills />
         <Projects />
